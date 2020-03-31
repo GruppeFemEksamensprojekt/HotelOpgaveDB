@@ -16,7 +16,7 @@ namespace HotelLorteOpgaveWebservice
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Hotel_No { get; set; }
 
         [Required]
