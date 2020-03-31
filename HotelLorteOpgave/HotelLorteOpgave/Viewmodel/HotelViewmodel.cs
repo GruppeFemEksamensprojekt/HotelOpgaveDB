@@ -15,7 +15,8 @@ namespace HotelLorteOpgave.Viewmodel
         public HotelViewmodel()
         {
             Hotels = new ObservableCollection<Hotel>();
-            LoadHotelsAsync();
+            //LoadHotelsAsync();
+            Hotels.Add(new Hotel() { Hotel_No = 1, Address = "Roskilde 4000", Name = "Bo Svendsen" });
         }
         public ObservableCollection<Hotel> Hotels { get; set; }
 

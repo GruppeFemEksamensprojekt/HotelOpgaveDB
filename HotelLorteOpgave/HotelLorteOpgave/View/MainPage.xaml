@@ -2,19 +2,27 @@
     x:Class="HotelLorteOpgave.View.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:Viewmodel="using:HotelLorteOpgave.Viewmodel"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:HotelLorteOpgave.View"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:Viewmodel="using:HotelLorteOpgave.Viewmodel"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
-    <Grid>
+    <Page.DataContext>
+        <Viewmodel:HotelViewmodel/>
+    </Page.DataContext>
+    
+    <Grid Background="Gold">
 
         <ListView ItemsSource="{Binding Hotels, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <ListView.ItemTemplate>
                 <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        
                     <TextBlock Text="{Binding Hotel_No, Mode=TwoWay}" />
+                        <TextBlock Text="{Binding Name, Mode=TwoWay}"/>
+                        <TextBlock Text="{Binding Address, Mode=TwoWay}"/>
+                    </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
