@@ -30,12 +30,12 @@ namespace HotelLorteOpgave.Persistancy
         //    string usersJsonString = JsonConvert.SerializeObject(events);
         //    SerializeEventsFileAsync(usersJsonString, jsonFileNameEvents);
         //}
-        public static async Task<ObservableCollection<Hotel>> LoadHotelsFromJsonAsync()
+        public static async Task<List<Hotel>> LoadHotelsFromJsonAsync()
         {
             //string eventsJsonString = await DeserializeEventsFileAsync(jsonFileNameEvents);
 
 
-            const string serverUrl = "http://localhost:51784";
+            const string serverUrl = "http://localhost:54000";
             HttpClientHandler handler = new HttpClientHandler();
             handler.UseDefaultCredentials = true;
             using (var client = new HttpClient(handler))
@@ -44,14 +44,22 @@ namespace HotelLorteOpgave.Persistancy
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
+                List<Hotel> hotelList = new List<Hotel>();
+
                 try
                 {
-                    var response = await client.GetAsync("api/Hotels");
+                    var response = client.GetAsync("api/hotels").Result;
 
                     var hotels = response.Content.ReadAsAsync<IEnumerable<Hotel>>().Result;
+
                     if (response.IsSuccessStatusCode)
                     {
-                        return (ObservableCollection<Hotel>)hotels;
+                        foreach (var item in hotels)
+                        {
+                            hotelList.Add(item);
+                        }
+
+                        return hotelList;
                     }
                 }
                 catch (Exception)
