@@ -26,7 +26,7 @@ namespace HotelLorteOpgave.View
         public MainPage()
         {
             this.InitializeComponent();
-            this.DataContext = (typeof(HotelViewmodel));
+            
         }
     }
 }

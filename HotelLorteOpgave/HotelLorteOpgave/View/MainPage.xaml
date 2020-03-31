@@ -8,13 +8,20 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
-
+    <Page.DataContext>
+        <Viewmodel:HotelViewmodel />
+    </Page.DataContext>
     <Grid>
 
         <ListView ItemsSource="{Binding Hotels, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Hotel_No, Mode=TwoWay}" />
+                    <StackPanel>
+
+                        <TextBlock Text="{Binding Hotel_No, Mode=TwoWay}" />
+                        <TextBlock Text="{Binding Name, Mode=TwoWay}" />
+                        <TextBlock Text="{Binding Address, Mode=TwoWay}" />
+                    </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

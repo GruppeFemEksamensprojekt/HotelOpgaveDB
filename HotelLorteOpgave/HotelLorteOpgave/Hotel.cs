@@ -9,12 +9,8 @@
     public partial class Hotel
     {
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Hotel(int hotel_No, string name, string address)
+        public Hotel()
         {
-            Hotel_No = hotel_No;
-            Name = name;
-            Address = address;
-
             //Rooms = new HashSet<Room>();
         }
 

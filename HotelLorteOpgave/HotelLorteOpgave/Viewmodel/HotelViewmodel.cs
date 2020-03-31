@@ -15,15 +15,20 @@ namespace HotelLorteOpgave.Viewmodel
         public HotelViewmodel()
         {
             Hotels = new ObservableCollection<Hotel>();
+            //Hotels.Add(new Hotel() {
+            //    Hotel_No = 1,
+            //    Name = "Niels",
+            //    Address = "Vej"
+            //});
             LoadHotelsAsync();
         }
         public ObservableCollection<Hotel> Hotels { get; set; }
 
         public async void LoadHotelsAsync()
         {
-            Hotels = await PersistanceService.LoadHotelsFromJsonAsync();
+            var HotelList = await PersistanceService.LoadHotelsFromJsonAsync();
 
-                foreach (var hotel in Hotels)
+                foreach (var hotel in HotelList)
                 {
                     Hotels.Add(hotel);
                 }                     
