@@ -44,11 +44,12 @@ namespace HotelLorteOpgave.Persistancy
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
+
                 List<Hotel> hotelList = new List<Hotel>();
 
                 try
                 {
-                    var response = client.GetAsync("api/hotels").Result;
+                    var response = await client.GetAsync("api/Hotels");
 
                     var hotels = response.Content.ReadAsAsync<IEnumerable<Hotel>>().Result;
 
@@ -80,6 +81,5 @@ namespace HotelLorteOpgave.Persistancy
             StorageFile localFile = await ApplicationData.Current.LocalFolder.GetFileAsync(fileName);
             return await FileIO.ReadTextAsync(localFile);
         }
-
     }
 }
