@@ -12,7 +12,7 @@ namespace HotelLorteOpgaveWebservice
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Hotel()
         {
-            Rooms = new HashSet<Room>();
+            //Rooms = new HashSet<Room>();
         }
 
         [Key]
@@ -27,7 +27,7 @@ namespace HotelLorteOpgaveWebservice
         [StringLength(50)]
         public string Address { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Room> Rooms { get; set; }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<Room> Rooms { get; set; }
     }
 }

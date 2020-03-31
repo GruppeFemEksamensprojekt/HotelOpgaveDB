@@ -10,7 +10,7 @@
 
 
     <Grid Background="Gold">
-        <ListView ItemsSource="{Binding , Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+        <ListView ItemsSource="{Binding Hotels, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel />

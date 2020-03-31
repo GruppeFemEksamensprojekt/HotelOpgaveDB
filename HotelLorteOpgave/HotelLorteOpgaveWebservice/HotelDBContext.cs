@@ -40,10 +40,10 @@ namespace HotelLorteOpgaveWebservice
                 .Property(e => e.Address)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Hotel>()
-                .HasMany(e => e.Rooms)
-                .WithRequired(e => e.Hotel)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<Hotel>()
+            //    .HasMany(e => e.Rooms)
+            //    .WithRequired(e => e.Hotel)
+            //    .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Room>()
                 .Property(e => e.Types)
