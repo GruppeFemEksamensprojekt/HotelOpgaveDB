@@ -35,7 +35,7 @@ namespace HotelLorteOpgave.Persistancy
             //string eventsJsonString = await DeserializeEventsFileAsync(jsonFileNameEvents);
 
 
-            const string serverUrl = "http://localhost:54000";
+            const string serverUrl = "http://localhost:51784";
             HttpClientHandler handler = new HttpClientHandler();
             handler.UseDefaultCredentials = true;
             using (var client = new HttpClient(handler))
