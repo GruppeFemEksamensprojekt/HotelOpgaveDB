@@ -44,13 +44,11 @@ namespace HotelLorteOpgave.Persistancy
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-
                 List<Hotel> hotelList = new List<Hotel>();
 
                 try
                 {
                     var response = await client.GetAsync("api/Hotels");
-
                     var hotels = response.Content.ReadAsAsync<IEnumerable<Hotel>>().Result;
 
                     if (response.IsSuccessStatusCode)
@@ -59,7 +57,6 @@ namespace HotelLorteOpgave.Persistancy
                         {
                             hotelList.Add(item);
                         }
-
                         return hotelList;
                     }
                 }
