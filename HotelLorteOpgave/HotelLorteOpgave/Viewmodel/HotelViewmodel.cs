@@ -9,20 +9,18 @@ using System.Threading.Tasks;
 
 namespace HotelLorteOpgave.Viewmodel
 {
-
+    
    public class HotelViewmodel
     {
+        private Hotel _selectedHotel;
         public HotelViewmodel()
         {
             Hotels = new ObservableCollection<Hotel>();
-            //Hotels.Add(new Hotel() {
-            //    Hotel_No = 1,
-            //    Name = "Niels",
-            //    Address = "Vej"
-            //});
             LoadHotelsAsync();
         }
         public ObservableCollection<Hotel> Hotels { get; set; }
+        public Hotel SelectedHotel { get { return _selectedHotel; } set { _selectedHotel = value; } }
+
 
         public async void LoadHotelsAsync()
         {

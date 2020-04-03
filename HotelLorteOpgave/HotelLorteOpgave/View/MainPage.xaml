@@ -12,19 +12,44 @@
         <Viewmodel:HotelViewmodel />
     </Page.DataContext>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Background="#eeeeee">
+            <ListView ItemsSource="{Binding Hotels, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Hotel_No, Mode=TwoWay}" />
+                            <TextBlock Text="{Binding Name, Mode=TwoWay}" />
+                            <TextBlock Text="{Binding Address, Mode=TwoWay}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+        <!--  Hvis Hotel / Room information  -->
+        <StackPanel Grid.Column="1" Background="#eeeeee">
+            <ListView ItemsSource="{Binding , Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
 
-        <ListView ItemsSource="{Binding Hotels, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-
-                        <TextBlock Text="{Binding Hotel_No, Mode=TwoWay}" />
-                        <TextBlock Text="{Binding Name, Mode=TwoWay}" />
-                        <TextBlock Text="{Binding Address, Mode=TwoWay}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-
+        <!--  Vis Bookings fra selected hotel  -->
+        <StackPanel Grid.Column="2" Background="#eeeeee">
+            <ListView ItemsSource="{Binding , Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
     </Grid>
 </Page>
